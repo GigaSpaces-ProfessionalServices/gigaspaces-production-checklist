@@ -1,0 +1,42 @@
+AC_INIT(gigapro-xap, version-0.1)
+
+# Include required libraries
+m4_include([m4/ax_prog_java.m4])
+m4_include([m4/ax_check_java_home.m4])
+m4_include([m4/ax_prog_java_works.m4])
+m4_include([m4/ax_xap_os.m4])
+m4_include([m4/ax_xap_discovery.m4])
+m4_include([m4/ax_xap_runtime_env.m4])
+m4_include([m4/ax_xap_jvm_cms.m4])
+m4_include([m4/ax_xap_lrmi.m4])
+m4_include([m4/ax_xap_runtime_files.m4])
+
+
+
+AC_MSG_NOTICE([*** GigaSpaces XAP Moving into Production Checklist])
+AC_MSG_NOTICE([*** http://docs.gigaspaces.com/sbp/moving-into-production-checklist.html])
+AC_MSG_NOTICE([ ])
+AC_MSG_NOTICE([ ])
+
+AX_PROG_JAVA
+AX_CHECK_JAVA_HOME
+
+AC_MSG_NOTICE([* Checking for GigaSpaces OS ulimit settings])
+AX_XAP_ULIMIT
+
+AC_MSG_NOTICE([* Checking for LUS discovery settings])
+AX_XAP_LOOKUPS
+
+AC_MSG_NOTICE([* Checking for XAP Runtime Environment settings])
+AX_XAP_RUNTIME_ENV
+
+AC_MSG_NOTICE([* Checking for GSC JVM Settings (CMS Profile)])
+AX_XAP_JVM_CMS
+
+AC_MSG_NOTICE([* Checking LRMI client/service connection pool settings])
+AX_XAP_LRMI
+
+AC_MSG_NOTICE([* Checking for Runtime file settings])
+AX_XAP_RUNTIME_FILES
+
+
